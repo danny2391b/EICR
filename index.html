@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EICR Direct | Electrical Safety Certificates</title>
+  <meta name="description" content="Book qualified EICR inspections for rental properties, homes, and commercial premises. Fast reports, transparent pricing, and UK-wide coverage.">
+  <style>
+    :root {
+      --ink: #1d2630;
+      --muted: #66727f;
+      --line: #dce4ea;
+      --panel: #ffffff;
+      --soft: #f4f8fb;
+      --brand: #0a7c86;
+      --brand-dark: #075b62;
+      --accent: #f6a623;
+      --ok: #12805c;
+      --danger: #d64545;
+      --shadow: 0 18px 45px rgba(29, 38, 48, 0.14);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--soft);
+      line-height: 1.5;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      background: #10212b;
+      color: #dcebf0;
+      font-size: 0.9rem;
+    }
+
+    .topbar-inner,
+    .nav-inner,
+    .section-inner,
+    .footer-inner {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 8px 0;
+    }
+
+    .topbar strong {
+      color: #ffffff;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 68px;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.35rem;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      color: #10212b;
+      background: var(--accent);
+      border-radius: 7px;
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: #31404b;
+      font-size: 0.98rem;
+      font-weight: 700;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      color: #ffffff;
+      background: var(--brand);
+      box-shadow: 0 10px 24px rgba(10, 124, 134, 0.24);
+    }
+
+    .button-primary:hover {
+      background: var(--brand-dark);
+    }
+
+    .button-secondary {
+      color: var(--brand-dark);
+      background: #e8f5f6;
+      border-color: #b9dce0;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 640px;
+      color: #ffffff;
+      background:
+        linear-gradient(90deg, rgba(14, 32, 42, 0.92) 0%, rgba(14, 32, 42, 0.77) 43%, rgba(14, 32, 42, 0.34) 100%),
+        url("https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1800&q=80") center / cover;
+    }
+
+    .hero-inner {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) 440px;
+      gap: 44px;
+      align-items: center;
+      padding: 72px 0 80px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: #c7f3f6;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      font-size: 0.82rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 999px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 720px;
+      margin-bottom: 18px;
+      font-size: clamp(2.3rem, 6vw, 4.7rem);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 660px;
+      margin-bottom: 30px;
+      color: #e7f1f3;
+      font-size: 1.18rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .proof-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      max-width: 680px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .proof {
+      padding: 17px 18px 17px 0;
+    }
+
+    .proof strong {
+      display: block;
+      font-size: 1.55rem;
+      line-height: 1;
+      color: #ffffff;
+    }
+
+    .proof span {
+      color: #c9d7dc;
+      font-size: 0.93rem;
+    }
+
+    .quote-panel {
+      background: var(--panel);
+      color: var(--ink);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .quote-head {
+      padding: 22px 24px 18px;
+      background: #f7fbfc;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .quote-head h2 {
+      margin-bottom: 4px;
+      font-size: 1.35rem;
+    }
+
+    .quote-head p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .quote-form {
+      display: grid;
+      gap: 14px;
+      padding: 22px 24px 24px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      color: #344553;
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid #cbd6de;
+      border-radius: 6px;
+      padding: 10px 12px;
+      color: var(--ink);
+      background: #ffffff;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 82px;
+      resize: vertical;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin: 0;
+    }
+
+    section {
+      background: #ffffff;
+    }
+
+    .band {
+      padding: 68px 0;
+    }
+
+    .band-soft {
+      background: var(--soft);
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 28px;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 0;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.12;
+    }
+
+    .section-heading p {
+      max-width: 510px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 10px 24px rgba(29, 38, 48, 0.06);
+    }
+
+    .icon {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 18px;
+      color: #ffffff;
+      background: var(--brand);
+      border-radius: 7px;
+      font-weight: 900;
+    }
+
+    .card h3 {
+      margin-bottom: 9px;
+      font-size: 1.16rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    .card p {
+      margin-bottom: 18px;
+    }
+
+    .price {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-top: auto;
+      color: var(--brand-dark);
+      font-weight: 900;
+      font-size: 1.85rem;
+    }
+
+    .price span {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .image-panel {
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      aspect-ratio: 4 / 3;
+      background: #d7e0e5;
+    }
+
+    .image-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 14px;
+      padding: 0;
+      margin: 24px 0 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      color: #40505d;
+    }
+
+    .tick {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      color: #ffffff;
+      background: var(--ok);
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      counter-reset: step;
+    }
+
+    .step {
+      position: relative;
+      padding-top: 58px;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      color: #10212b;
+      background: var(--accent);
+      border-radius: 50%;
+      font-weight: 900;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .stars {
+      color: #e49a10;
+      font-weight: 900;
+      margin-bottom: 12px;
+      letter-spacing: 0;
+    }
+
+    .review-card p {
+      color: #3e4e5a;
+      font-size: 1rem;
+    }
+
+    .reviewer {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .cta {
+      color: #ffffff;
+      background:
+        linear-gradient(90deg, rgba(10, 124, 134, 0.95), rgba(16, 33, 43, 0.88)),
+        url("https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=80") center / cover;
+    }
+
+    .cta .section-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .cta h2 {
+      margin-bottom: 8px;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin-bottom: 0;
+      color: #e4f1f3;
+    }
+
+    .faq {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    details {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+    }
+
+    summary {
+      color: var(--ink);
+      cursor: pointer;
+      font-weight: 900;
+    }
+
+    details p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    footer {
+      color: #c8d5db;
+      background: #10212b;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3, 1fr);
+      gap: 34px;
+      padding: 46px 0;
+    }
+
+    footer h3 {
+      margin-bottom: 12px;
+      color: #ffffff;
+      font-size: 1rem;
+    }
+
+    footer p,
+    footer a {
+      color: #c8d5db;
+      font-size: 0.94rem;
+    }
+
+    footer nav {
+      display: grid;
+      gap: 8px;
+    }
+
+    .mobile-cta {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .topbar-inner {
+        display: none;
+      }
+
+      .nav-inner {
+        min-height: 62px;
+      }
+
+      .nav-links a:not(.button) {
+        display: none;
+      }
+
+      .hero-inner,
+      .split,
+      .cta .section-inner,
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        padding: 52px 0 60px;
+      }
+
+      .quote-panel {
+        max-width: 560px;
+      }
+
+      .services,
+      .steps,
+      .review-grid,
+      .faq {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section-heading {
+        display: grid;
+      }
+
+      .cta .section-inner {
+        display: grid;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-inner {
+        gap: 28px;
+      }
+
+      .proof-row,
+      .services,
+      .steps,
+      .review-grid,
+      .faq,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .proof {
+        padding-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+      }
+
+      .proof:last-child {
+        border-bottom: 0;
+      }
+
+      .brand {
+        font-size: 1.1rem;
+      }
+
+      .nav-links .button {
+        display: none;
+      }
+
+      .mobile-cta {
+        position: fixed;
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+        z-index: 20;
+        display: flex;
+        box-shadow: 0 12px 26px rgba(10, 124, 134, 0.38);
+      }
+
+      .band {
+        padding: 48px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <span><strong>Same-week EICR appointments</strong> for landlords, homeowners, and commercial premises</span>
+      <span>Call 07515 569070 | Mon-Sat 8am-7pm</span>
+    </div>
+  </div>
+
+  <header class="nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="EICR Direct home">
+        <span class="brand-mark">E</span>
+        <span>EICR Direct</span>
+      </a>
+      <nav class="nav-links" aria-label="Site navigation">
+        <a href="#pricing">Pricing</a>
+        <a href="#process">How it works</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">Help</a>
+        <a class="button button-primary" href="#quote">Book EICR</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Book an EICR inspection">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">Electrical safety certificates made simple</div>
+          <h1>EICR testing for rental properties, homes, and businesses.</h1>
+          <p class="hero-copy">Book a qualified electrical inspection, get a clear fixed price, and receive your digital Electrical Installation Condition Report without chasing paperwork.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#quote">Get a fixed quote</a>
+            <a class="button button-secondary" href="#process">See the process</a>
+          </div>
+          <div class="proof-row" aria-label="Service highlights">
+            <div class="proof">
+              <strong>24-48h</strong>
+              <span>report turnaround after inspection</span>
+            </div>
+            <div class="proof">
+              <strong>NICEIC</strong>
+              <span>approved contractor network</span>
+            </div>
+            <div class="proof">
+              <strong>5 year</strong>
+              <span>landlord compliance support</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="quote-panel" id="quote" aria-label="EICR quote form">
+          <div class="quote-head">
+            <h2>Start your booking</h2>
+            <p>Tell us the property basics and we will confirm availability.</p>
+          </div>
+          <form class="quote-form">
+            <label>
+              Postcode
+              <input type="text" name="postcode" placeholder="e.g. SW1A 1AA" autocomplete="postal-code">
+            </label>
+            <div class="form-grid">
+              <label>
+                Property type
+                <select name="property-type">
+                  <option>Flat or apartment</option>
+                  <option>Terraced house</option>
+                  <option>Semi-detached</option>
+                  <option>Detached house</option>
+                  <option>Commercial unit</option>
+                </select>
+              </label>
+              <label>
+                Bedrooms
+                <select name="bedrooms">
+                  <option>Studio</option>
+                  <option>1 bedroom</option>
+                  <option>2 bedrooms</option>
+                  <option>3 bedrooms</option>
+                  <option>4+ bedrooms</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              Email
+              <input type="email" name="email" placeholder="you@example.com" autocomplete="email">
+            </label>
+            <button class="button button-primary" type="submit">Check appointment times</button>
+            <p class="form-note">No payment taken here. We confirm the engineer, price, and access details first.</p>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="band" id="pricing">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>Clear EICR pricing for every property.</h2>
+          <p>Choose the inspection that fits the premises. Every booking includes testing, classification of observations, and a digital certificate.</p>
+        </div>
+        <div class="services">
+          <article class="card">
+            <div class="icon">1</div>
+            <h3>Flat EICR</h3>
+            <p>Ideal for landlords and homeowners who need a certificate for a studio, maisonette, or apartment.</p>
+            <div class="price">From &pound;119 <span>inc. report</span></div>
+          </article>
+          <article class="card">
+            <div class="icon">2</div>
+            <h3>House EICR</h3>
+            <p>Full inspection for houses with multiple circuits, consumer unit checks, and clear remedial guidance.</p>
+            <div class="price">From &pound;149 <span>inc. report</span></div>
+          </article>
+          <article class="card">
+            <div class="icon">3</div>
+            <h3>Commercial EICR</h3>
+            <p>For shops, offices, workshops, and managed blocks where scheduling and documentation matter.</p>
+            <div class="price">Quote <span>after survey</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-soft">
+      <div class="section-inner split">
+        <div class="image-panel">
+          <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80" alt="Electrician testing an electrical installation with safety equipment">
+        </div>
+        <div>
+          <div class="eyebrow" style="color: var(--brand-dark);">For landlords</div>
+          <h2>Stay compliant without turning certificates into admin work.</h2>
+          <p>Landlords need a valid electrical safety report and evidence that urgent remedial work has been handled. We make each step easy to track, from access notes to the final PDF.</p>
+          <ul class="check-list">
+            <li><span class="tick">&#10003;</span><span>Reports written in plain English with C1, C2, C3, and FI observations explained.</span></li>
+            <li><span class="tick">&#10003;</span><span>Tenant, agent, and landlord copies can be sent from one booking record.</span></li>
+            <li><span class="tick">&#10003;</span><span>Remedial quotes are separated clearly from the inspection price.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="process">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>Book, test, certify, done.</h2>
+          <p>A straightforward workflow for people who need the certificate quickly and want to know what happens next.</p>
+        </div>
+        <div class="steps">
+          <article class="card step">
+            <h3>Enter property details</h3>
+            <p>Share the postcode, property type, and access preference so we can match the right engineer.</p>
+          </article>
+          <article class="card step">
+            <h3>Confirm the slot</h3>
+            <p>Pick an appointment and get a fixed inspection price before the visit is booked in.</p>
+          </article>
+          <article class="card step">
+            <h3>Inspection and testing</h3>
+            <p>The electrician checks circuits, RCDs, earthing, bonding, and visible installation condition.</p>
+          </article>
+          <article class="card step">
+            <h3>Receive the report</h3>
+            <p>Your digital EICR arrives with clear pass, fail, or further investigation notes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-soft" id="reviews">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>Built for repeat landlords and busy agents.</h2>
+          <p>Simple enough for one property, organised enough for a whole portfolio.</p>
+        </div>
+        <div class="review-grid">
+          <article class="card review-card">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Booked on Monday, engineer attended Wednesday, certificate was in my inbox the next morning."</p>
+            <div class="reviewer">Amira, landlord</div>
+          </article>
+          <article class="card review-card">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"The report was easy to understand and the remedial quote was itemised properly. No surprises."</p>
+            <div class="reviewer">James, property manager</div>
+          </article>
+          <article class="card review-card">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"I needed proof for a new tenancy and they handled access through my letting agent directly."</p>
+            <div class="reviewer">Priya, portfolio owner</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band cta">
+      <div class="section-inner">
+        <div>
+          <h2>Need an EICR before a tenancy starts?</h2>
+          <p>Send the property details today and we will confirm the soonest available inspection slot in your area.</p>
+        </div>
+        <a class="button button-secondary" href="#quote">Start booking</a>
+      </div>
+    </section>
+
+    <section class="band band-soft" id="faq">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>Common EICR questions.</h2>
+          <p>Fast answers before you book.</p>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>How long does an EICR take?</summary>
+            <p>Most flats take around 1-2 hours. Larger homes and commercial properties can take longer depending on circuits, access, and installation condition.</p>
+          </details>
+          <details>
+            <summary>What happens if the property fails?</summary>
+            <p>The report will list the observation codes and recommended remedial work. You can arrange repairs separately or ask us for an itemised quote.</p>
+          </details>
+          <details>
+            <summary>Do landlords need an EICR?</summary>
+            <p>Landlords in England generally need electrical installations inspected and tested at least every five years, and must provide reports when required.</p>
+          </details>
+          <details>
+            <summary>Can tenants or agents arrange access?</summary>
+            <p>Yes. Add access notes during booking and we can coordinate appointment details with tenants, agents, key safes, or site contacts.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <a class="brand" href="#top">
+          <span class="brand-mark">E</span>
+          <span>EICR Direct</span>
+        </a>
+        <p>Electrical safety inspections, condition reports, and compliance support for UK properties.</p>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <nav>
+          <a href="#pricing">Flat EICR</a>
+          <a href="#pricing">House EICR</a>
+          <a href="#pricing">Commercial EICR</a>
+        </nav>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <nav>
+          <a href="#process">How it works</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#faq">Help</a>
+        </nav>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <nav>
+          <a href="tel:07515569070">07515 569070</a>
+          <a href="mailto:mullinselec@gmail.com">mullinselec@gmail.com</a>
+          <a href="#quote">Book online</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <a class="button button-primary mobile-cta" href="#quote">Book EICR</a>
+</body>
+</html>
